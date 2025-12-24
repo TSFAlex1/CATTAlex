@@ -77,11 +77,6 @@ body{
 .panel{min-height:var(--panel-min-height);display:flex;align-items:center;justify-content:center;scroll-snap-align:start;padding:48px 20px;position:relative;z-index:1}
 .panel-inner{width:100%;max-width:var(--maxw);margin:0 auto;background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius: var(--card-radius);padding:30px;box-shadow: 0 10px 60px rgba(2,6,12,0.6);border:1px solid rgba(255,255,255,0.03)}
 
-.panel--hero{padding-top:90px;padding-bottom:90px}
-.hero-title{font-family:Orbitron, Inter; font-size:40px;margin:0 0 12px;color:var(--blue)}
-.hero-lead{color:var(--muted);max-width:800px;font-size:17px}
-.hero-ctas{margin-top:18px}
-
 /* Video grid */
 .video-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:18px;margin-top:14px}
 .video{display:flex;flex-direction:column;gap:8px}
@@ -115,18 +110,30 @@ body{
 .site-footer{margin-top:20px;color:rgba(255,255,255,0.5);text-align:center}
 .footer-ctas{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;justify-content:center}
 
-/* Elfsight player container (bottom-right) */
+/* Elfsight audio player container (bottom-right) */
 .elfsight-fixed{position:fixed;right:18px;bottom:18px;z-index:80;width:360px;max-width:calc(100% - 36px);pointer-events:auto;transition: transform 300ms ease, opacity 300ms ease}
 .elfsight-fixed .elfsight-app-2f77b2a4-99ad-4c20-9221-0a7816862b1f{display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;box-shadow: 0 10px 40px rgba(2,6,12,0.6)}
-@media (max-width:700px){.elfsight-fixed{width:300px;right:12px;bottom:12px}}
-@media (max-width:420px){.elfsight-fixed{display:none}}
+
+/* Elfsight AI chatbot container (bottom-left) */
+.elfsight-chat{position:fixed;left:18px;bottom:18px;z-index:80;width:360px;max-width:calc(100% - 36px);pointer-events:auto;transition: transform 300ms ease, opacity 300ms ease}
+.elfsight-chat .elfsight-app-1fe60767-5f40-45f7-8336-9e5bb12de07b{display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;box-shadow: 0 10px 40px rgba(2,6,12,0.6)}
+
+/* Small screens: scale or hide to avoid covering content */
+@media (max-width:700px){
+  .elfsight-fixed{width:300px;right:12px;bottom:12px}
+  .elfsight-chat{width:300px;left:12px;bottom:12px}
+}
+@media (max-width:420px){
+  .elfsight-fixed{display:none}
+  .elfsight-chat{display:none}
+}
 
 /* Responsive */
 @media (max-width:1100px){.video-grid{grid-template-columns:repeat(1, 1fr)}.beatmap-grid{grid-template-columns:repeat(2, 1fr)}}
 @media (max-width:760px){.panel--cards .panel-inner{grid-template-columns:repeat(1,1fr)}.header-inner{padding:12px}.avatar-wrap{width:64px;height:64px;flex:0 0 64px}.beatmap-grid{grid-template-columns:repeat(1, 1fr)}}
 
 /* Reduced motion */
-@media (prefers-reduced-motion: reduce){.bg-layer, .neon-ring, .btn, .reveal, .bg-image, .elfsight-fixed{animation:none;transition:none}}
+@media (prefers-reduced-motion: reduce){.bg-layer, .neon-ring, .btn, .reveal, .bg-image, .elfsight-fixed, .elfsight-chat{animation:none;transition:none}}
 
 /* Avatar hover */
 .avatar-wrap:hover .avatar{transform:translateY(-6px) scale(1.02); transition:transform 400ms cubic-bezier(.2,.9,.2,1)}
