@@ -1,94 +1,72 @@
-/* Updated bg zoom: slightly more zoomed in for a tighter look + Elfsight player positioning */
-:root{
-  --bg:#0b0f18;
-  --red:#ff2d55;
-  --blue:#4ad3ff;
-  --glass: rgba(255,255,255,0.04);
-  --muted: rgba(255,255,255,0.75);
-  --accent-glow: 0 6px 30px rgba(74,211,255,0.07), 0 0 40px rgba(255,45,85,0.08);
-  --card-radius:14px;
-  --maxw:1100px;
-  --transition: 600ms cubic-bezier(.2,.9,.2,1);
-  --panel-min-height:78vh; /* panels closer together */
-  color-scheme: dark;
-}
+// Smooth reveal on scroll, parallax background, small avatar parallax
+document.addEventListener('DOMContentLoaded', () => {
+  // Year in footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color: #e9f1ff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-y:auto;
-  scroll-behavior:smooth;
-}
+  // IntersectionObserver for reveals
+  const reveals = document.querySelectorAll('.reveal');
+  const obsOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // unobserve for performance
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, obsOptions);
+  reveals.forEach(r => revealObserver.observe(r));
 
-/* Blurred background image used for slow parallax (ZOOMED IN slightly) */
-.bg-image{
-  position:fixed;
-  inset:0;
-  z-index:-3;
-  background-image: url('background.webp');
-  background-size: cover;
-  background-position: center center;
-  filter: blur(28px) brightness(0.55) saturate(1.05);
-  transform: translate3d(0,0,0) scale(1.18); /* increased scale for tighter zoom */
-  transform-origin: center center;
-  will-change: transform;
-  pointer-events:none;
-}
-
-/* Scene background layers */
-.scene-bg{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  overflow:hidden;
-  pointer-events:none;
-}
-/* ... rest of your existing styles unchanged ... */
-
-/* Elfsight audio player (fixed container) */
-.elfsight-fixed{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:80; /* above site UI but below any modals you might add */
-  width:360px;
-  max-width:calc(100% - 36px);
-  pointer-events:auto;
-  transition: transform 300ms ease, opacity 300ms ease;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-/* Make the embedded widget look clean (Elfsight injects its own iframe/content) */
-.elfsight-fixed .elfsight-app-2f77b2a4-99ad-4c20-9221-0a7816862b1f{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow: 0 10px 40px rgba(2,6,12,0.6);
-}
-
-/* Smaller screens: scale down or hide depending on preference */
-@media (max-width:700px){
-  .elfsight-fixed{
-    width:300px;
-    right:12px;
-    bottom:12px;
+  // Parallax background movement for decorative layers
+  const bgLayers = document.querySelectorAll('.bg-layer');
+  function handleScrollParallax(){
+    const sc = window.scrollY || window.pageYOffset;
+    // move decorative layers a bit
+    bgLayers.forEach((layer, i) => {
+      const depth = (i + 1) * 0.015;
+      layer.style.transform = `translate3d(${sc * depth}px, ${-sc * depth}px, 0) rotate(${sc * depth * 0.02}deg)`;
+    });
   }
-}
-@media (max-width:420px){
-  /* mobile: hide the floating player to avoid covering content (you can change to show) */
-  .elfsight-fixed{display:none}
-}
+  handleScrollParallax();
+  window.addEventListener('scroll', handleScrollParallax, { passive: true });
 
-/* Accessibility: reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .bg-layer, .neon-ring, .btn, .reveal, .bg-image, .elfsight-fixed{animation:none;transition:none}
-}
+  // Slow-moving blurred background image parallax (moves with scroll but very slowly)
+  const bgImage = document.getElementById('bgImage');
+  function handleBgImage(){
+    if (!bgImage) return;
+    const sc = window.scrollY || window.pageYOffset;
+    // very slow movement (almost static)
+    const factor = 0.02;
+    // Use translate3d for GPU
+    bgImage.style.transform = `translate3d(0, ${sc * factor}px, 0) scale(1.18)`;
+  }
+  handleBgImage();
+  window.addEventListener('scroll', handleBgImage, { passive: true });
+
+  // Subtle avatar parallax following mouse
+  const avatarWrap = document.querySelector('.avatar-wrap');
+  const avatar = document.getElementById('avatar');
+  if (avatarWrap && avatar) {
+    avatarWrap.addEventListener('mousemove', (e) => {
+      const r = avatarWrap.getBoundingClientRect();
+      const cx = r.left + r.width/2;
+      const cy = r.top + r.height/2;
+      const dx = (e.clientX - cx) / r.width;
+      const dy = (e.clientY - cy) / r.height;
+      avatar.style.transform = `translate(${dx * 6}px, ${dy * 6}px) rotate(${dx * 2}deg)`;
+    });
+    avatarWrap.addEventListener('mouseleave', () => {
+      avatar.style.transform = '';
+    });
+  }
+
+  // Reduce heavy motion when prefers-reduced-motion is enabled
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mq.matches) {
+    window.removeEventListener('scroll', handleScrollParallax);
+    window.removeEventListener('scroll', handleBgImage);
+    bgLayers.forEach(layer => layer.style.transform = '');
+    if (bgImage) bgImage.style.transform = 'scale(1.18)';
+  }
+});
