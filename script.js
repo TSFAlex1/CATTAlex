@@ -11,18 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        // unobserve for performance
         revealObserver.unobserve(entry.target);
       }
     });
   }, obsOptions);
   reveals.forEach(r => revealObserver.observe(r));
 
-  // Parallax background movement for decorative layers
+  // Parallax decorative layers
   const bgLayers = document.querySelectorAll('.bg-layer');
   function handleScrollParallax(){
     const sc = window.scrollY || window.pageYOffset;
-    // move decorative layers a bit
     bgLayers.forEach((layer, i) => {
       const depth = (i + 1) * 0.015;
       layer.style.transform = `translate3d(${sc * depth}px, ${-sc * depth}px, 0) rotate(${sc * depth * 0.02}deg)`;
@@ -31,20 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScrollParallax();
   window.addEventListener('scroll', handleScrollParallax, { passive: true });
 
-  // Slow-moving blurred background image parallax (moves with scroll but much slower)
+  // Very slow-moving blurred background image parallax
   const bgImage = document.getElementById('bgImage');
   function handleBgImage(){
     if (!bgImage) return;
     const sc = window.scrollY || window.pageYOffset;
-    // much slower movement (reduced factor)
-    const factor = 0.02; // << lowered so image moves MUCH slower
-    // Use translate3d for GPU
+    const factor = 0.01; // much slower (almost static)
     bgImage.style.transform = `translate3d(0, ${sc * factor}px, 0) scale(1.18)`;
   }
   handleBgImage();
   window.addEventListener('scroll', handleBgImage, { passive: true });
 
-  // Subtle avatar parallax following mouse
+  // Avatar mouse parallax
   const avatarWrap = document.querySelector('.avatar-wrap');
   const avatar = document.getElementById('avatar');
   if (avatarWrap && avatar) {
@@ -61,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Reduce heavy motion when prefers-reduced-motion is enabled
+  // Respect prefers-reduced-motion
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (mq.matches) {
     window.removeEventListener('scroll', handleScrollParallax);
