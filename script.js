@@ -1,6 +1,6 @@
-// Smooth reveal on scroll, parallax background, small avatar parallax
+// Smooth reveal on scroll, parallax background, avatar parallax, dropdown handling
 document.addEventListener('DOMContentLoaded', () => {
-  // Year in footer
+  // Year in footer (safely set on pages that include the element)
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleBgImage(){
     if (!bgImage) return;
     const sc = window.scrollY || window.pageYOffset;
-    const factor = 0.01; // much slower (almost static)
+    const factor = 0.01; // very slow
     bgImage.style.transform = `translate3d(0, ${sc * factor}px, 0) scale(1.18)`;
   }
   handleBgImage();
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Avatar mouse parallax
   const avatarWrap = document.querySelector('.avatar-wrap');
-  const avatar = document.getElementById('avatar');
+  const avatar = document.getElementById('avatar') || document.getElementById('avatar-info');
   if (avatarWrap && avatar) {
     avatarWrap.addEventListener('mousemove', (e) => {
       const r = avatarWrap.getBoundingClientRect();
@@ -54,6 +54,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     avatarWrap.addEventListener('mouseleave', () => {
       avatar.style.transform = '';
+    });
+  }
+
+  // Dropdown pages menu handling (accessible)
+  const pagesBtn = document.getElementById('pagesBtn');
+  const pagesMenu = document.getElementById('pagesMenu');
+  if (pagesBtn && pagesMenu) {
+    function closePagesMenu() {
+      pagesMenu.classList.remove('show');
+      pagesBtn.setAttribute('aria-expanded', 'false');
+    }
+    function openPagesMenu() {
+      pagesMenu.classList.add('show');
+      pagesBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    pagesBtn.addEventListener('click', (e) => {
+      const isOpen = pagesMenu.classList.contains('show');
+      if (isOpen) closePagesMenu();
+      else openPagesMenu();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!pagesBtn.contains(e.target) && !pagesMenu.contains(e.target)) closePagesMenu();
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePagesMenu();
+    });
+
+    // Allow arrow navigation inside menu
+    const menuLinks = pagesMenu.querySelectorAll('a');
+    let idx = -1;
+    pagesBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        openPagesMenu();
+        idx = 0;
+        menuLinks[idx].focus();
+      }
+    });
+    menuLinks.forEach((link, i) => {
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); if (i < menuLinks.length - 1) menuLinks[i + 1].focus(); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); if (i > 0) menuLinks[i - 1].focus(); else pagesBtn.focus(); }
+      });
     });
   }
 
