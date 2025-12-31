@@ -36,7 +36,17 @@
         </div>
       </div>
 
-      <nav class="top-cta">
+      <nav class="top-cta" aria-label="Primary">
+        <div class="pages-dropdown" id="pagesDropdown">
+          <button class="pages-btn" id="pagesBtn" aria-haspopup="true" aria-expanded="false">
+            Pages ▾
+          </button>
+          <ul class="pages-menu" id="pagesMenu" role="menu" aria-labelledby="pagesBtn">
+            <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+            <li role="none"><a role="menuitem" href="info.html">Info</a></li>
+          </ul>
+        </div>
+
         <a class="btn btn--glass" href="https://beatsaver.com/profile/306187" target="_blank" rel="noopener noreferrer">BeatSaver</a>
         <a class="btn btn--accent" href="https://beatleader.com/supporting-project/link" target="_blank" rel="noopener noreferrer">Download Sabers</a>
       </nav>
@@ -44,7 +54,7 @@
   </header>
 
   <main class="page" id="page">
-    <!-- Hero -->
+    <!-- Hero section -->
     <section class="panel panel--hero" id="home">
       <div class="panel-inner">
         <h2 class="hero-title">Welcome to my Beat Saber journey</h2>
@@ -65,7 +75,7 @@
       </div>
     </section>
 
-    <!-- Videos -->
+    <!-- YouTube videos -->
     <section class="panel panel--videos" id="videos">
       <div class="panel-inner">
         <h3>Latest Videos</h3>
@@ -86,7 +96,7 @@
 
           <div class="video reveal">
             <div class="video-iframe">
-              <iframe src="https://www.youtube.com/embed/B4H2w7buvIs" title="TSFAlex & Cosmic149 custom music pack showcase!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              <iframe src="https://www.youtube.com/embed/B4H2w7buvIs" title="TSFAlex &amp; Cosmic149 custom music pack showcase!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="video-caption">TSFAlex &amp; Cosmic149 custom music pack showcase!</p>
           </div>
@@ -100,7 +110,7 @@
 
           <div class="video reveal">
             <div class="video-iframe">
-              <iframe src="https://www.youtube.com/embed/4yQvhW60wIE" title="Something Just Like This in Beat Saber" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              <iframe src="https://www.youtube.com/embed/4yQvhW60wIE" title="Something Just Like This in Beat Saber Coldplay music pack!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="video-caption">Something Just Like This in Beat Saber</p>
           </div>
@@ -115,17 +125,29 @@
       </div>
     </section>
 
-    <!-- BeatSaver maps -->
+    <!-- BeatSaver recommended maps (separate section) -->
     <section class="panel panel--beatsaver" id="beatsaver">
       <div class="panel-inner">
         <h3>Recommended BeatSaver Maps — Try these</h3>
         <div class="beatmap-grid">
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/4a8fe/embed" loading="lazy" title="Map 4a8fe"></iframe></div>
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/40f1f/embed" loading="lazy" title="Map 40f1f"></iframe></div>
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/43be0/embed" loading="lazy" title="Map 43be0"></iframe></div>
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/44080/embed" loading="lazy" title="Map 44080"></iframe></div>
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/495d3/embed" loading="lazy" title="Map 495d3"></iframe></div>
-          <div class="beatmap reveal"><iframe src="https://beatsaver.com/maps/3b283/embed" loading="lazy" title="Map 3b283"></iframe></div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/4a8fe/embed" loading="lazy" title="Map 4a8fe"></iframe>
+          </div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/40f1f/embed" loading="lazy" title="Map 40f1f"></iframe>
+          </div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/43be0/embed" loading="lazy" title="Map 43be0"></iframe>
+          </div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/44080/embed" loading="lazy" title="Map 44080"></iframe>
+          </div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/495d3/embed" loading="lazy" title="Map 495d3"></iframe>
+          </div>
+          <div class="beatmap reveal">
+            <iframe src="https://beatsaver.com/maps/3b283/embed" loading="lazy" title="Map 3b283"></iframe>
+          </div>
         </div>
 
         <div class="beatleader-block reveal">
@@ -135,12 +157,13 @@
       </div>
     </section>
 
-    <!-- Downloads & other sections (unchanged) -->
+    <!-- Downloads & Versions -->
     <section class="panel panel--cards" id="downloads">
       <div class="panel-inner">
         <div class="card reveal">
-          <h4>Download</h4>
+          <h4>Downloads</h4>
           <ul>
+            <li>🟣 Map: <a href="https://beatsaver.com/maps/4324e" target="_blank" rel="noopener noreferrer">beatsaver.com/maps/4324e</a></li>
             <li>🟢 Sabers: <a href="https://beatleader.com/supporting-project/link" target="_blank" rel="noopener noreferrer">beatleader.com/supporting-project/link</a></li>
             <li>🔴 Beat Saber: <a href="https://beatsaber.com/" target="_blank" rel="noopener noreferrer">beatsaber.com</a></li>
           </ul>
@@ -169,6 +192,7 @@
       </div>
     </section>
 
+    <!-- Gear & Specs -->
     <section class="panel panel--specs" id="gear">
       <div class="panel-inner reveal">
         <h3>My VR Gear</h3>
@@ -189,6 +213,7 @@
       </div>
     </section>
 
+    <!-- Workflow -->
     <section class="panel panel--workflow" id="workflow">
       <div class="panel-inner reveal">
         <h3>How I Make Content</h3>
@@ -200,14 +225,16 @@
       </div>
     </section>
 
+    <!-- AI / Tools (BOTTOM) -->
     <section class="panel panel--ai" id="ai">
       <div class="panel-inner reveal">
         <h3>AI, Websites & Tools</h3>
-        <p>I build websites, tools, and automations using AI to speed development and create polished interfaces.</p>
-        <p>Check out projects: <a href="https://tsfalex-central.vercel.app" target="_blank" rel="noopener noreferrer">tsfalex-central.vercel.app</a></p>
+        <p>I build websites, tools, and automations using AI to speed development and create polished interfaces. I create single-file demos, embed media, and wire up smooth interactions for content creators.</p>
+        <p>Check out my other projects and portfolio: <a href="https://tsfalex-central.vercel.app" target="_blank" rel="noopener noreferrer">tsfalex-central.vercel.app</a></p>
       </div>
     </section>
 
+    <!-- Socials -->
     <section class="panel panel--socials" id="socials">
       <div class="panel-inner reveal">
         <h3>Check out my other socials</h3>
@@ -218,18 +245,18 @@
       </div>
     </section>
 
+    <!-- Contact / Footer -->
     <section class="panel panel--contact" id="contact">
       <div class="panel-inner reveal">
         <h3>Get In Touch</h3>
-        <p>If you want collabs, map features, or just to talk Beat Saber — reach out on Twitch, Discord or BeatLeader!</p>
+        <p>If you want collabs, map features, or just to talk Beat Saber — reach out on Twitch or BeatLeader!</p>
         <div class="footer-ctas">
           <a class="btn btn--ghost" href="https://www.twitch.tv/tsf_alex" target="_blank" rel="noopener noreferrer">Twitch</a>
-          <a class="btn btn--glass" href="https://discord.com/users/1404168334181666937" target="_blank" rel="noopener noreferrer">Discord</a>
           <a class="btn btn--glass" href="https://beatleader.com/u/76561199847092427" target="_blank" rel="noopener noreferrer">BeatLeader</a>
         </div>
 
         <footer class="site-footer">
-          <small>© <span id="year"></span> CATTAlex — Beat Saber</small>
+          <small>© <span id="year"></span> CATTAlex — Beat Saber Journey</small>
         </footer>
       </div>
     </section>
