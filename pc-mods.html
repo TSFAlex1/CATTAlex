@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PC Mods — CATTAlex</title>
+  <meta name="description" content="How to set up Beat Saber mods using BSManager (PC) — CATTAlex" />
+  <link rel="icon" href="CATTAlex pic2.png" type="image/png">
+  <meta name="theme-color" content="#071022">
+
+  <!-- Reuse site CSS and JS for a consistent look -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background + decorative layers (same as other pages) -->
+  <div class="bg-image" id="bgImage" aria-hidden="true"></div>
+  <div class="scene-bg" aria-hidden="true">
+    <div class="bg-layer layer--1"></div>
+    <div class="bg-layer layer--2"></div>
+    <div class="bg-layer layer--3"></div>
+  </div>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="avatar-wrap" aria-hidden="false">
+          <img src="CATTAlex pic.jpg" alt="CATTAlex profile" class="avatar" id="avatar-pcmods">
+          <div class="neon-ring" aria-hidden="true"></div>
+        </div>
+        <div class="brand-text">
+          <h1 class="channel-title">CATTAlex</h1>
+          <p class="subtitle">PC Mods — BSManager Guide</p>
+        </div>
+      </div>
+
+      <nav class="top-cta" aria-label="Primary">
+        <a class="btn btn--glass" href="index.html">Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="page">
+    <section class="panel panel--info" id="pcmods">
+      <div class="panel-inner">
+        <h2>How to set up Beat Saber mods using BSManager (PC)</h2>
+
+        <p class="hero-lead">This guide walks you through installing and managing Beat Saber mods on PC using BSManager. Read each step carefully and make backups before modifying game files.</p>
+
+        <ol>
+          <li>
+            <strong>Before you start — prerequisites</strong>
+            <ul>
+              <li>Beat Saber installed on PC (Steam or Microsoft Store)</li>
+              <li>Windows user with admin rights (recommended for installs)</li>
+              <li>BSManager (download from the project's official releases page)</li>
+              <li>Optional: make a quick backup of your Beat Saber folder (just copy the install folder to a safe place)</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Download & run BSManager</strong>
+            <ol>
+              <li>Get BSManager from the official repository/releases (always use the project's official page).</li>
+              <li>Extract the zip (if needed) and run the BSManager executable.</li>
+              <li>If Windows warns about unknown publisher, confirm you trust the source (only if you downloaded from the official page).</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Point BSManager to your Beat Saber installation</strong>
+            <p>When first opened, BSManager will ask where Beat Saber is installed. Choose the folder that contains Beat Saber (for Steam this is usually under your SteamLibrary/steamapps/common/Beat Saber).</p>
+          </li>
+
+          <li>
+            <strong>Install the mod loader and core dependencies</strong>
+            <ul>
+              <li>BSManager usually detects and installs required plugin loaders (BepInEx/IPA or similar). Use the UI option to install the loader if prompted.</li>
+              <li>Install the core dependencies first — many mods require these to function.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Browse and install mods</strong>
+            <ol>
+              <li>In BSManager you'll see a list of available mods or an install dialog. Search or select mods you want (e.g., NoodleExtensions, Chroma, MappingExtensions, Camera2, CustomSabersLite, Vivify, ReeSabers, BeatLeader, ScoreSaber, BeatSaberPlus).</li>
+              <li>Click Install (or Apply). BSManager will download and place the mod files in the correct locations.</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Enable and configure mods</strong>
+            <ul>
+              <li>After installation, check the mods list — ensure mods are enabled.</li>
+              <li>Some mods have configuration files or in-game menus. Open Beat Saber and look for mod-specific settings (or edit config files under the BepInEx/config folder if needed).</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Start Beat Saber and verify</strong>
+            <ol>
+              <li>Launch Beat Saber from Steam (or the store) and confirm the game starts without errors.</li>
+              <li>Open the mods menu or check for mod features to verify each mod loaded correctly.</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Updating mods</strong>
+            <ul>
+              <li>Use BSManager's update feature to keep mods and the loader up to date.</li>
+              <li>Before updating many mods at once, make a quick backup in case an update causes issues.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Troubleshooting</strong>
+            <ul>
+              <li><strong>Game won't start / crash on launch:</strong> Temporarily remove recently installed mods, then add them back one-by-one to find the culprit.</li>
+              <li><strong>Black screen or missing visuals:</strong> Make sure BSManager installed the correct loader and that OBS/other programs are not interfering. Run Beat Saber before selecting it in capture tools.</li>
+              <li><strong>Antivirus/quarantine:</strong> Some mod files can be flagged. Check your security software and allow/whitelist the Beat Saber folder if you trust the files.</li>
+              <li><strong>Conflicting mods:</strong> Some mods may overlap functionality — check mod pages for compatibility notes.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Best practices & tips</strong>
+            <ul>
+              <li>Keep a small "test" set of core mods working before adding lots of extras — that makes troubleshooting far easier.</li>
+              <li>Read each mod's install/compatibility notes on its official page or GitHub.</li>
+              <li>Use BSManager to uninstall or roll back mods rather than manually deleting files when possible.</li>
+              <li>When an update breaks things, revert to your backup and update mods one-at-a-time.</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Uninstalling / cleaning up</strong>
+            <ul>
+              <li>Use BSManager's uninstall/remove features where available.</li>
+              <li>If you need a full clean reinstall, restore your backed-up folder or reinstall Beat Saber from Steam.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div style="margin-top:18px;">
+          <a class="btn btn--glass" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
