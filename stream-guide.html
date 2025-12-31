@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to stream Beat Saber — CATTAlex</title>
+  <meta name="description" content="How to stream Beat Saber on Twitch using OBS (step-by-step) — CATTAlex" />
+  <link rel="icon" href="CATTAlex pic2.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Re-uses the same visual background and header styles from the main site -->
+  <div class="bg-image" id="bgImage" aria-hidden="true"></div>
+  <div class="scene-bg">
+    <div class="bg-layer layer--1"></div>
+    <div class="bg-layer layer--2"></div>
+    <div class="bg-layer layer--3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="avatar-wrap" aria-hidden="false">
+          <img src="CATTAlex pic.jpg" alt="CATTAlex profile" class="avatar" id="avatar">
+          <div class="neon-ring" aria-hidden="true"></div>
+        </div>
+        <div class="brand-text">
+          <h1 class="channel-title">CATTAlex</h1>
+          <p class="subtitle">Streaming Guide</p>
+        </div>
+      </div>
+
+      <nav class="top-cta" aria-label="Primary">
+        <a class="btn btn--glass" href="index.html">Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="page">
+    <section class="panel panel--info" id="streaming-guide">
+      <div class="panel-inner">
+        <h2>How to stream Beat Saber on Twitch using OBS (step-by-step)</h2>
+
+        <ol>
+          <li>
+            <strong>What you need first</strong>
+            <ul>
+              <li>PC with OBS Studio installed</li>
+              <li>Beat Saber on PC (Steam) or Quest using Link / Air Link</li>
+              <li>A Twitch account</li>
+              <li>A VR headset connected and working</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Connect OBS to Twitch</strong>
+            <ol>
+              <li>Open OBS</li>
+              <li>Go to Settings → Stream</li>
+              <li>Set Service to Twitch</li>
+              <li>Click <em>Connect Account</em> and log in (or use Stream Key if you prefer)</li>
+              <li>Click Apply → OK</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Create a Beat Saber scene</strong>
+            <ol>
+              <li>In Scenes, click + — Name it <em>Beat Saber</em></li>
+              <li>In Sources, click + and add:</li>
+              <ul>
+                <li><strong>Game Capture</strong><br>
+                    Mode: Capture specific window<br>
+                    Window: Beat Saber</li>
+                <li>If that doesn’t work, try <strong>Window Capture</strong></li>
+                <li>Use <strong>Display Capture</strong> only as a last resort</li>
+              </ul>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Fix a black screen</strong>
+            <ul>
+              <li>Make sure OBS and Beat Saber are using the same GPU</li>
+              <li>Start Beat Saber before selecting it in OBS</li>
+              <li>Switch Game Capture → Window Capture if needed</li>
+              <li>Run OBS as administrator if nothing shows</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Set up audio</strong>
+            <p>Go to Settings → Audio and set:</p>
+            <ul>
+              <li>Desktop Audio → your headset/speakers (game sound)</li>
+              <li>Mic/Aux → your microphone</li>
+              <li>Speak and check the audio bars are moving</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Video settings (recommended)</strong>
+            <p>Go to Settings → Video and set:</p>
+            <ul>
+              <li>Base Resolution → 1920x1080</li>
+              <li>Output Resolution → 1280x720 or 1920x1080</li>
+              <li>FPS → 60</li>
+              <li>Click Apply</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Streaming quality settings</strong>
+            <p>Go to Settings → Output. Set Output Mode to Simple. Under Streaming:</p>
+            <ul>
+              <li>Encoder → NVENC (if available)</li>
+              <li>Bitrate:
+                <ul>
+                  <li>720p60 → 4500 kbps</li>
+                  <li>1080p60 → 6000 kbps (Twitch max)</li>
+                </ul>
+              </li>
+              <li>Click Apply</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Make Beat Saber look better (optional)</strong>
+            <ul>
+              <li>In Beat Saber Settings → Graphics: Enable Smooth Camera</li>
+              <li>Increase render scale if your PC can handle it</li>
+              <li>Resize/crop the game in OBS to remove black bars</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Go live</strong>
+            <ol>
+              <li>Launch Beat Saber</li>
+              <li>Check the game appears correctly in OBS</li>
+              <li>Click Start Streaming</li>
+              <li>Open your Twitch channel to confirm it’s live</li>
+            </ol>
+          </li>
+
+          <li>
+            <strong>Quick fixes</strong>
+            <ul>
+              <li>Stream lagging → lower bitrate or resolution</li>
+              <li>No game audio → recheck Desktop Audio</li>
+              <li>Audio delay → Advanced Audio Properties → Sync Offset</li>
+              <li>Low FPS → close background apps or lower in-game settings</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div style="margin-top:18px;">
+          <a class="btn btn--glass" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
