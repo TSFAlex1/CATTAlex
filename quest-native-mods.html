@@ -4,16 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Quest Native Mods — CATTAlex</title>
-  <meta name="description" content="How to install Quest-native Beat Saber mods (BMBF / SideQuest) — CATTAlex" />
+  <meta name="description" content="How to mod Quest Beat Saber natively using ModsBeforeFriday — CATTAlex" />
   <link rel="icon" href="CATTAlex pic2.png" type="image/png">
   <meta name="theme-color" content="#071022">
 
-  <!-- Reuse site CSS and Elfsight if you want the widgets on this page too -->
   <script src="https://elfsightcdn.com/platform.js" async></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Background + decorative layers -->
   <div class="bg-image" id="bgImage" aria-hidden="true"></div>
   <div class="scene-bg" aria-hidden="true">
     <div class="bg-layer layer--1"></div>
@@ -24,13 +22,13 @@
   <header class="site-header" role="banner">
     <div class="header-inner">
       <div class="brand">
-        <div class="avatar-wrap" aria-hidden="false">
+        <div class="avatar-wrap">
           <img src="CATTAlex pic.jpg" alt="CATTAlex profile" class="avatar" id="avatar-quest">
           <div class="neon-ring" aria-hidden="true"></div>
         </div>
         <div class="brand-text">
           <h1 class="channel-title">CATTAlex</h1>
-          <p class="subtitle">Quest Native Mods — Quick Guide</p>
+          <p class="subtitle">Quest Native Mods — ModsBeforeFriday Guide</p>
         </div>
       </div>
 
@@ -43,99 +41,103 @@
   <main class="page" id="page">
     <section class="panel panel--info" id="quest-mods">
       <div class="panel-inner">
-        <h2>Quest-native Beat Saber mods (BMBF / SideQuest) — step-by-step</h2>
+        <h2>Quest-native Beat Saber modding — ModsBeforeFriday (MBF)</h2>
 
-        <p class="hero-lead">This guide covers the commonly used flow for installing mods and custom songs on Oculus/Meta Quest devices using SideQuest and BMBF. Read everything first and make backups where suggested. Modding native Quest Beat Saber modifies the game on-device and carries some risk — proceed carefully.</p>
+        <p class="hero-lead">
+          This guide explains how to mod Beat Saber <strong>natively on Meta Quest</strong> using
+          <strong>ModsBeforeFriday.xyz</strong>. MBF is the modern, recommended method for Quest
+          modding and replaces older workflows like BMBF for supported versions.
+        </p>
 
         <h3>Important warnings</h3>
         <ul>
-          <li>Modding can break with official updates — automatic updates may unpatch Beat Saber. Disable auto-updates for Beat Saber in the Oculus app if you want to keep mods.</li>
-          <li>Follow official project pages (SideQuest, BMBF) — avoid shady downloads.</li>
-          <li>Always backup your Beat Saber data (and the entire headset if possible) before patching.</li>
-          <li>Using mods may violate the game's terms of service — do this at your own risk.</li>
+          <li>Modding modifies Beat Saber on your headset and can break when the game updates.</li>
+          <li>Only use official links — fake mod sites can brick your install.</li>
+          <li>Disable Beat Saber auto-updates to avoid losing mods.</li>
+          <li>Proceed at your own risk — modding is not officially supported by Meta.</li>
         </ul>
 
         <h3>Prerequisites</h3>
         <ol>
-          <li>Meta Quest 2 or Quest 3 with a working USB C-C cable (or use SideQuest wireless after setup)</li>
-          <li>A PC (Windows/macOS/Linux) or Andoriod phone — SideQuest runs on all platforms</li>
-          <li>Beat Saber installed on the Quest (the version should be compatible with the mod tool you use)</li>
-          <li>An Oculus/Meta account and the mobile Oculus app to enable Developer Mode on the headset</li>
-          <li>Patience — some steps require confirmations inside the headset</li>
+          <li>Meta Quest 2 or Quest 3</li>
+          <li>Beat Saber installed on the headset (compatible version)</li>
+          <li>A phone or PC with a web browser</li>
+          <li>Developer Mode enabled on your Quest</li>
+          <li>A stable Wi-Fi connection</li>
         </ol>
 
-        <h3>Overview (what you'll do)</h3>
+        <h3>Overview (what you’ll do)</h3>
         <ol>
-          <li>Enable Developer Mode for your Quest via the Oculus mobile app</li>
-          <li>Install SideQuest on your PC and connect the headset</li>
-          <li>Use SideQuest to install BMBF (or the current Quest modding tool)</li>
-          <li>Open BMBF in VR and follow its patching flow — this patches Beat Saber so custom songs & mods work</li>
-          <li>Use BMBF to install custom songs and compatible Quest-native mods</li>
+          <li>Enable Developer Mode on your Quest</li>
+          <li>Open ModsBeforeFriday.xyz</li>
+          <li>Connect your Quest through the browser-based installer</li>
+          <li>Patch Beat Saber automatically</li>
+          <li>Install Quest-native mods and custom songs</li>
         </ol>
 
         <h3>Step-by-step instructions</h3>
 
-        <h4>1) Enable Developer Mode on your Quest</h4>
+        <h4>1) Enable Developer Mode</h4>
         <ol>
-          <li>Open the Oculus (Meta) mobile app on your phone.</li>
-          <li>Select your headset, go to Settings → More Settings → Developer Mode and toggle it on.</li>
-          <li>If you don't have an organization, you may need to create a free developer organization — follow the app prompts.</li>
+          <li>Open the Meta Quest mobile app.</li>
+          <li>Select your headset → Settings → Developer Mode.</li>
+          <li>Turn Developer Mode on (create a free dev organization if prompted).</li>
         </ol>
 
-        <h4>2) Install SideQuest on your PC</h4>
+        <h4>2) Open ModsBeforeFriday</h4>
         <ol>
-          <li>Download SideQuest from https://sidequestvr.com/ and install it on your PC.</li>
-          <li>Run SideQuest and connect your Quest via USB. Approve the <em>Allow USB debugging</em> prompt inside the headset when it appears (tick "Always allow" if you plan to use it regularly).</li>
-          <li>Confirm SideQuest shows a green dot (connected).</li>
+          <li>On your PC or phone, go to <strong>https://mbf.bsquest.xyz</strong>.</li>
+          <li>Read the compatibility notes shown on the site.</li>
         </ol>
 
-        <h4>3) Install BMBF (mod manager) via SideQuest</h4>
+        <h4>3) Connect your Quest</h4>
         <ol>
-          <li>In SideQuest, search for BMBF in the app list or use the Install APK option with the official BMBF build. Official BMBF info: https://bmbf.dev/ (check for latest method and download links).</li>
-          <li>Install BMBF to the headset with SideQuest. Wait for installation to finish.</li>
+          <li>Plug your Quest into your PC using a USB cable.</li>
+          <li>Put on the headset and allow USB debugging when prompted.</li>
+          <li>Return to the browser and continue once the device is detected.</li>
         </ol>
 
-        <h4>4) Run BMBF and patch Beat Saber (in VR)</h4>
+        <h4>4) Patch Beat Saber</h4>
         <ol>
-          <li>Put on your Quest, open Apps → Unknown Sources → open BMBF.</li>
-          <li>BMBF will guide you through patching Beat Saber. Follow the on-screen steps: it often downloads required files and patches the Beat Saber install on-device.</li>
-          <li>At times, BMBF may ask to uninstall or re-install Beat Saber temporarily — follow instructions carefully and keep any recommended backups.</li>
+          <li>Click the patch/install button on ModsBeforeFriday.</li>
+          <li>The site will automatically patch Beat Saber for mod support.</li>
+          <li>Wait until the process fully completes — do not unplug early.</li>
         </ol>
 
-        <h4>5) Add custom songs & Quest-native mods using BMBF</h4>
+        <h4>5) Install mods & custom songs</h4>
         <ol>
-          <li>In BMBF you can manage songs: import songs from local files or from supported websites (BeatSaver, BeastSaber, etc.).</li>
-          <li>Some Quest-native mods are distributed specifically for BMBF / Quest and can be added through BMBF's mod manager or by copying the mod files to the proper directory via SideQuest's file manager.</li>
-          <li>After adding songs or mods, use the <em>Sync to Beat Saber</em> option in BMBF to apply changes. Then launch Beat Saber to test.</li>
+          <li>Use the ModsBeforeFriday interface to install Quest-native mods.</li>
+          <li>Install core mods first, then optional gameplay or cosmetic mods.</li>
+          <li>Custom songs can be added through supported song managers.</li>
         </ol>
 
-        <h4>6) Maintain and update safely</h4>
+        <h4>6) Launch and verify</h4>
         <ul>
-          <li>When Beat Saber updates, your mod setup may break. Check BMBF and the mod authors for updated patches before updating Beat Saber.</li>
-          <li>Keep copies/backups of your custom songs and BMBF config so you can restore quickly if something goes wrong.</li>
+          <li>Open Beat Saber on your Quest.</li>
+          <li>Confirm the mod menu appears and songs load correctly.</li>
         </ul>
 
         <h3>Troubleshooting</h3>
         <ul>
-          <li><strong>SideQuest doesn't detect headset:</strong> ensure Developer Mode is on, try a different USB cable/port, approve USB debugging in the headset.</li>
-          <li><strong>BMBF patch failed:</strong> check log messages inside BMBF, reinstall BMBF via SideQuest, ensure Beat Saber version is supported.</li>
-          <li><strong>Custom songs not showing:</strong> press "Sync to Beat Saber" in BMBF, then launch Beat Saber; confirm songs were imported and not corrupted.</li>
-          <li><strong>Headset behaves oddly after patch:</strong> try rebooting the headset. If persistent, restore from backup or reinstall Beat Saber and re-run BMBF following official steps.</li>
+          <li><strong>Quest not detected:</strong> confirm Developer Mode and USB debugging are enabled.</li>
+          <li><strong>Patching failed:</strong> ensure your Beat Saber version is supported by MBF.</li>
+          <li><strong>Mods not loading:</strong> install required core mods first.</li>
+          <li><strong>Game crashes:</strong> remove recently added mods and retry.</li>
         </ul>
 
-        <h3>Best practices & tips</h3>
+        <h3>Best practices</h3>
         <ul>
-          <li>Always follow official docs for SideQuest and BMBF (links change over time).</li>
-          <li>Keep automatic Beat Saber updates disabled until you confirm mod compatibility with newer versions.</li>
-          <li>Make backups before patching: copy your Beat Saber install or use SideQuest's file manager to copy important files.</li>
-          <li>Join the BMBF / Quest modding community (Discord or forums) for the most up-to-date instructions and troubleshooting tips.</li>
+          <li>Disable Beat Saber auto-updates.</li>
+          <li>Only install Quest-native mods marked as compatible.</li>
+          <li>Re-check ModsBeforeFriday after game updates.</li>
+          <li>Join Quest modding communities for updates and fixes.</li>
         </ul>
 
         <h3>Useful links</h3>
         <ul>
-          <li>SideQuest — https://sidequestvr.com/</li>
-          <li>BMBF (official info & downloads) — https://bmbf.dev/</li>
-          <li>BeatSaver (maps) — https://beatsaver.com/</li>
+          <li>ModsBeforeFriday — https://mbf.bsquest.xyz</li>
+          <li>BeatSaver — https://beatsaver.com/</li>
+          <li>Quest Modding Community (Discords & forums)</li>
         </ul>
 
         <div style="margin-top:18px;">
